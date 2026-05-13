@@ -57,10 +57,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sentinelx.wsgi.application'
 
+_DB_PATH = os.environ.get('DB_PATH', str(BASE_DIR / 'db.sqlite3'))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': _DB_PATH,
     }
 }
 
