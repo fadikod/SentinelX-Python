@@ -42,13 +42,14 @@ export function AuthProvider({ children }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
-      if (!res.ok) return { error: { message: data.error || 'Registration failed.' } };
+      let data;
+      try { data = await res.json(); } catch { data = {}; }
+      if (!res.ok) return { error: { message: data.error || `Server error (${res.status})` } };
       storeTokens(data.access, data.refresh);
       setUser(data.user);
       return { error: null };
-    } catch {
-      return { error: { message: 'Network error. Is the backend running?' } };
+    } catch (err) {
+      return { error: { message: `Network error: ${err.message}` } };
     }
   };
 
@@ -59,13 +60,14 @@ export function AuthProvider({ children }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
-      if (!res.ok) return { error: { message: data.error || 'Authentication failed.' } };
+      let data;
+      try { data = await res.json(); } catch { data = {}; }
+      if (!res.ok) return { error: { message: data.error || `Server error (${res.status})` } };
       storeTokens(data.access, data.refresh);
       setUser(data.user);
       return { error: null };
-    } catch {
-      return { error: { message: 'Network error. Is the backend running?' } };
+    } catch (err) {
+      return { error: { message: `Network error: ${err.message}` } };
     }
   };
 
