@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
       setLoading(false);
       return;
     }
-    fetch(`${BASE}/api/auth/me/`, {
+    fetch(`${BASE}/api/auth/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(r => (r.ok ? r.json() : null))
@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
 
   const signUp = async (email, password) => {
     try {
-      const res = await fetch(`${BASE}/api/auth/register/`, {
+      const res = await fetch(`${BASE}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -55,7 +55,7 @@ export function AuthProvider({ children }) {
 
   const signIn = async (email, password) => {
     try {
-      const res = await fetch(`${BASE}/api/auth/login/`, {
+      const res = await fetch(`${BASE}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

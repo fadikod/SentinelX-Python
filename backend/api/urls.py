@@ -4,10 +4,10 @@ from api.views import auth, nvd, abuseipdb, shodan, news, settings as settings_v
 
 urlpatterns = [
     # Auth
-    path('auth/register/', auth.register, name='register'),
-    path('auth/login/', auth.login_view, name='login'),
-    path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('auth/me/', auth.me, name='me'),
+    path('auth/register', auth.register, name='register'),
+    path('auth/login', auth.login_view, name='login'),
+    path('auth/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth/me', auth.me, name='me'),
 
     # NVD
     path('nvd/recent', nvd.recent, name='nvd_recent'),
