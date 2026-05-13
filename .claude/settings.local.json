@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(find /tmp/SentinelX -type f -name \"*.json\" | head -20)",
+      "Bash(gh repo *)",
+      "mcp__github__get_file_contents",
+      "Bash(pip install *)",
+      "Bash(npm install *)",
+      "Bash(python manage.py runserver 8000)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:8000/api/health)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(curl -s -X POST http://localhost:8000/api/auth/register/ -H \"Content-Type: application/json\" -d '{\"email\":\"test@sentinel.io\",\"password\":\"test123\"}')",
+      "Bash(python -m json.tool)",
+      "Bash(curl -s -X POST http://localhost:8000/api/auth/login/ -H \"Content-Type: application/json\" -d '{\"email\":\"test@sentinel.io\",\"password\":\"test123\"}')",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'totalResults: {d[\\\\\"totalResults\\\\\"]}, first CVE: {d[\\\\\"vulnerabilities\\\\\"][0][\\\\\"cve\\\\\"][\\\\\"id\\\\\"]}'\\)\")",
+      "Bash(git add *)"
+    ]
+  }
+}
