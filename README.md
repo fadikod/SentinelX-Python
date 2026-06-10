@@ -95,7 +95,9 @@ SHODAN_API_KEY=your_key_here
 
 ## 📸 Screenshots
 
-_Add screenshots here — one per page is enough. Drag and drop images into this section on GitHub._
+
+<img width="1903" height="953" alt="image" src="https://github.com/user-attachments/assets/c5edd20a-c41f-489a-8e81-be06837b52e5" />
+
 
 ---
 
